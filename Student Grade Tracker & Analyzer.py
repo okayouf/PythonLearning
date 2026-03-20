@@ -40,3 +40,58 @@ def get_grade(score):
     else:
         return  "F"
 print(get_grade(85))
+
+math_scores = [92, 65, 95, 45, 83, 71]
+pass_or_fail = lambda score : "pass" if score >=60 else "fail"
+for index,name in enumerate(students,start=1):
+    print(index,name)
+for name,score in zip(students,math_scores):
+    print(name,score)
+
+scores_above_70 = [score for score in math_scores if score > 70]
+print(scores_above_70)
+
+pass_fail = ['Pass' if score >= 60 else 'Fail' for score in math_scores]
+print(pass_fail)
+
+names_and_scores = zip(students,math_scores)
+graded = {student : get_grade(score) for student,score in names_and_scores}
+print(graded)
+
+gen_grades = ("Pass" if score >= 60 else "Fail" for score in math_scores)
+print(next(gen_grades))
+print(next(gen_grades))
+
+def grade_students(names,scores):
+    for name,score in zip(names,scores):
+        yield name,":",get_grade(score)
+
+for result in grade_students(students, math_scores):
+    print(result)
+
+import pandas as pd
+for chunk in pd.read_csv('students.csv',chunksize=10):
+    sum_chunk = sum(chunk['score'])
+    print(chunk)
+    print(sum_chunk)
+
+total = 0
+for chunk in pd.read_csv('students.csv',chunksize=10):
+    total += sum(chunk['score'])
+print(total)
+
+def class_report(filename):
+    """i will write somthing later"""
+    try:
+        df = pd.read_csv(filename)
+        unique_names = list(set(df['name']))
+        report = {}
+        for name in unique_names:
+            student_scores = df[df['name'] == name]['score']
+            average = sum(student_scores) / len(student_scores)
+            report[name] = get_grade(round(average))
+        print(report)
+    except:
+        print("File not found")
+
+class_report('students.csv')
