@@ -57,21 +57,27 @@ print(ingredients_set)  # "pasta" appears only once!
 # Add a 6th city using .append()
 # Print the full list.
 # Your code here:
-
+cities = ["Haifa","Tel Aviv","Beer sheva","Jerusalem","Rishon LeZion"]
+print(cities[2])
+cities.append("Nahariyya")
+print(cities)
 
 # Exercise 2:
 # Create a dictionary called "student" with keys:
 # "name", "age", "grade" and assign appropriate values.
 # Print the student's name by accessing the key.
 # Your code here:
-
+student = {"name": "Omri", "age": 25, "grade": 90}
+print(student["name"])
 
 # Exercise 3:
 # Create a tuple with the days of the week.
 # Try to change "Monday" to "Funday" — what happens?
 # Write the error as a comment.
 # Your code here:
-
+week_days = ("sunday","monday","tuesday","wednesday","thursday","friday","saturday")
+# week_days[1] = "funday"
+print(week_days)
 
 # Exercise 4:
 # Given this list with duplicates:
@@ -79,7 +85,8 @@ colors = ["red", "blue", "green", "red", "blue", "yellow", "red"]
 # Convert it to a set to remove duplicates, then back to a list.
 # Print the result.
 # Your code here:
-
+set_colors = set(colors)
+print(set_colors)
 
 # Exercise 5:
 # Create a dictionary where:
@@ -88,10 +95,12 @@ colors = ["red", "blue", "green", "red", "blue", "yellow", "red"]
 # Loop through it using .items() and print:
 # "[name] loves [food]"
 # Your code here:
-
+names_foods = {"omri": "burger", "danny" : "steak", "john" : "pizza"}
+for name, food in names_foods.items():
+    print(name,"loves", food)
 
 # Exercise 6:
 # What is the difference between a tuple and a list?
 # When would you use a tuple instead of a list?
 # Write your answer as a comment.
-# Answer:
+# Answer: a list can be changed and tuples can't be changed. i would use a tuple when the data needs to stay fixed.
