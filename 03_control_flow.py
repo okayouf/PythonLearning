@@ -21,7 +21,6 @@
 # +=: add to a variable (total += 1 means total = total + 1)
 # ============================================
 
-
 # --- Examples ---
 
 # if / elif / else
@@ -73,7 +72,15 @@ for num in range(10):
 #   - 65+: print "Senior"
 # Test it with age = 25
 # Your code here:
-
+age = 25
+if age < 13:
+    print("Child")
+elif age <= 17:
+    print("Teenager")
+elif age <= 64:
+    print("Adult")
+else:
+    print("Senior")
 
 # Exercise 2:
 # Given this list of temperatures:
@@ -83,14 +90,24 @@ temperatures = [22, 35, 18, 40, 28, 15, 33]
 #   "Nice" for temperatures between 20 and 30 (inclusive)
 #   "Cold" for temperatures below 20
 # Your code here:
-
+for temp in temperatures:
+    if temp < 20:
+        print("Cold")
+    elif temp <= 30:
+        print("Nice")
+    else:
+        print("Hot!")
 
 # Exercise 3:
 # Write a while loop that starts with count = 10
 # and counts down to 1, printing each number.
 # When it reaches 0, print "Liftoff!"
 # Your code here:
-
+count = 10
+while count > 0:
+    print(count)
+    count -= 1
+print("Liftoff!")
 
 # Exercise 4:
 # Given this list:
@@ -98,7 +115,10 @@ numbers = [4, 7, 2, 9, 1, 5, 8, 3, 6]
 # Write a for loop that finds the first number greater than 7
 # and prints it, then stops (use break).
 # Your code here:
-
+for num in numbers:
+    if num > 7:
+        print(num)
+        break
 
 # Exercise 5:
 # Write a for loop that goes through numbers 1 to 20.
@@ -106,10 +126,14 @@ numbers = [4, 7, 2, 9, 1, 5, 8, 3, 6]
 #   "[number] is even" if it's even (hint: num % 2 == 0)
 #   "[number] is odd" if it's odd
 # Your code here:
-
+for num in range(1,21):
+    if num % 2 == 0:
+        print(num, "is even")
+    else:
+        print(num, "is odd")
 
 # Exercise 6:
 # Why do we use elif instead of multiple if statements?
 # What goes wrong if you use all if's?
 # Write your answer as a comment.
-# Answer:
+# Answer: when we use elif, once the condition matches it skips all the rest, while multiple ifs will wil check the value for every if statement.
