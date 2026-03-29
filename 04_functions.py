@@ -74,7 +74,16 @@ print(average.__doc__)
 # Include a docstring.
 # Test it with your name.
 # Your code here:
+def greet(name):
+     """Return a greeting message for the given name.
 
+    Args:
+        name (str): The person's name.
+
+    Returns:
+        str: A greeting in the format 'Hello, name!'"""
+     return "Hello, " + name
+print(greet("Omri"))
 
 # Exercise 2:
 # Write a function called "is_passing" that takes a score
@@ -82,6 +91,14 @@ print(average.__doc__)
 # Return True if the score >= threshold, else False.
 # Test it with: is_passing(55), is_passing(55, 50), is_passing(75)
 # Your code here:
+def is_passing(score,passing_threshold=60):
+    if score >= passing_threshold:
+        return True
+    else:
+        return False
+print(is_passing(55))
+print(is_passing(55,50))
+print(is_passing(75))
 
 
 # Exercise 3:
@@ -89,7 +106,11 @@ print(average.__doc__)
 # to accept any number of numbers and returns their sum.
 # Test it with total(1, 2, 3) and total(10, 20, 30, 40, 50)
 # Your code here:
-
+def total(*args):
+    sum_args = sum(args)
+    return sum_args
+print(total(1,2,3))
+print(total(10, 20, 30, 40, 50))
 
 # Exercise 4:
 # Write a function called "student_info" that uses **kwargs
@@ -98,7 +119,10 @@ print(average.__doc__)
 # "age: 22"
 # Test it with student_info(name="Yael", age=22, grade="A")
 # Your code here:
-
+def student_info(**kwargs):
+    for key, value in kwargs.items():
+        print(key, ":", value)
+student_info(name="Omri", age=30, grade="A")
 
 # Exercise 5:
 # Write a function called "describe_number" with a multi-line docstring.
@@ -108,9 +132,20 @@ print(average.__doc__)
 #   - "zero" if == 0
 # The docstring should include: summary, Args, Returns
 # Your code here:
-
+def describe_number(num):
+    """Return if the number is positive, negative or zero.
+    Args:
+        num (int): The number
+    Returns:
+        str: 'positive', 'negative', or 'zero'"""
+    if num > 0:
+        return "positive"
+    elif num == 0:
+        return "zero"
+    else:
+        return "negative"
 
 # Exercise 6:
 # What is the difference between return and print in a function?
 # Write your answer as a comment.
-# Answer:
+# Answer: return gives the value silently, print displays it on the screen.
