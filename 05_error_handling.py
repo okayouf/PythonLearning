@@ -63,7 +63,14 @@ print(strict_average([10, 20, 30]))  # 20.0
 # If dividing by zero, print "Cannot divide by zero!"
 # Test with: safe_divide(10, 2) and safe_divide(10, 0)
 # Your code here:
+def safe_divide(numerator, denominator):
+    try:
+        return numerator / denominator
+    except:
+        print("Cannot divide by zero")
 
+print(safe_divide(10,2))
+print(safe_divide(10,0))
 
 # Exercise 2:
 # Write a function called "get_item" that takes a dictionary and a key.
@@ -71,7 +78,15 @@ print(strict_average([10, 20, 30]))  # 20.0
 # If the key is missing, print "[key] not found in dictionary."
 # Test with an existing and a non-existing key.
 # Your code here:
+def get_item(dictionary, key):
+    try:
+        return dictionary[key]
+    except:
+        print(key, "is not in dictionary")
 
+my_dict = {"name": "Yael", "age": 22}
+print(get_item(my_dict, "name"))    # Works — prints "Yael"
+get_item(my_dict, "grade")
 
 # Exercise 3:
 # Write a function called "validate_age" that takes an age.
@@ -80,14 +95,28 @@ print(strict_average([10, 20, 30]))  # 20.0
 # Otherwise, return "Valid age: [age]"
 # Test with: validate_age(25), validate_age("twenty"), validate_age(-5)
 # Your code here:
+def validate_age(age):
+    if type(age) != int:
+        raise TypeError("Age must be an integer")
+    elif age < 0:
+        raise ValueError("Age cannot be negative")
+    else:
+        return "Valid Age:" + str(age)
 
+print(validate_age(25))
+print(validate_age("twenty"))
+print(validate_age(-5))
 
 # Exercise 4:
 # What is the difference between try-except and raise?
 # When would you use each one?
 # Write your answer as a comment.
 # Answer:
-
+# try: code that might cause an error
+# except: code to run when there is an error — program keeps running
+# raise: intentionally produces an error with a custom message — program stops
+# Use try-except when you want to handle the error gracefully and continue.
+# Use raise when you want to stop the program to prevent bad results.
 
 # Exercise 5:
 # Look at this code. What error will it produce and why?
@@ -96,4 +125,4 @@ print(strict_average([10, 20, 30]))  # 20.0
 # my_dict = {"name": "Yael", "age": 22}
 # print(my_dict["grade"])
 #
-# Answer:
+# Answer: this will produce KeyError
