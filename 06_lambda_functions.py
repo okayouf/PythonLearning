@@ -53,13 +53,15 @@ print(capitalized)  # ['Yael', 'Noam', 'Tamar']
 # Write a lambda called "double" that takes a number and returns it doubled.
 # Test it with double(7)
 # Your code here:
-
+double = lambda x: x * 2
+print(double(7))
 
 # Exercise 2:
 # Write a lambda called "add" that takes two numbers and returns their sum.
 # Test it with add(3, 5)
 # Your code here:
-
+add = lambda x , y : x + y
+print(add(1, 2))
 
 # Exercise 3:
 # Write a lambda called "classify_temp" that takes a temperature and returns:
