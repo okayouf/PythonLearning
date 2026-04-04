@@ -61,7 +61,7 @@ print(double(7))
 # Test it with add(3, 5)
 # Your code here:
 add = lambda x , y : x + y
-print(add(1, 2))
+print(add(3, 5))
 
 # Exercise 3:
 # Write a lambda called "classify_temp" that takes a temperature and returns:
@@ -71,7 +71,10 @@ print(add(1, 2))
 # Hint: you can nest if/else like: a if cond1 else b if cond2 else c
 # Test with: classify_temp(35), classify_temp(10), classify_temp(22)
 # Your code here:
-
+classify_temp = lambda temp : "hot" if temp > 30 else "cold" if temp < 15 else "nice"
+print(classify_temp(35))
+print(classify_temp(10))
+print(classify_temp(22))
 
 # Exercise 4:
 # Given this list:
@@ -79,7 +82,7 @@ prices = [10.5, 23.0, 7.99, 45.0, 12.75]
 # Use map() with a lambda to add 20% tax to each price.
 # Print the result as a list.
 # Your code here:
-
+print(list(map(lambda x: round(x * 1.2,2), prices)))
 
 # Exercise 5:
 # Given this list:
@@ -87,10 +90,11 @@ words = ["hello", "WORLD", "Python", "CODE"]
 # Use map() with a lambda to convert each word to lowercase.
 # Print the result as a list.
 # Your code here:
-
+print(list(map(lambda word : word.lower(), words)))
 
 # Exercise 6:
 # What is the difference between a lambda function and a regular function?
 # When would you use one over the other?
 # Write your answer as a comment.
-# Answer:
+# Answer: a lambda function is an anonymous function and used on a simple function,
+# a regular function is used when the function is more complicated and used multiple times.
