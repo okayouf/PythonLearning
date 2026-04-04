@@ -66,13 +66,15 @@ print(pos_neg)  # {0: 0, 1: -1, 2: -2, ...}
 names = ["yael", "noam", "tamar", "ori", "dana"]
 # Use a list comprehension to create a new list with all names capitalized.
 # Your code here:
-
+capitalized_names = [name.capitalize() for name in names]
+print(capitalized_names)
 
 # Exercise 2:
 # Use a list comprehension to create a list of all numbers from 1 to 50
 # that are divisible by 3. (Hint: num % 3 == 0)
 # Your code here:
-
+numbers = [num for num in range(1,51) if num % 3 == 0]
+print(numbers)
 
 # Exercise 3:
 # Given this list:
@@ -80,7 +82,8 @@ temperatures = [22, 35, 18, 40, 28, 15, 33]
 # Use a list comprehension with if/else to create a list that labels
 # each temperature as "Hot" (above 30) or "OK" (30 or below).
 # Your code here:
-
+labeled_temps = ["hot" if temp > 30 else "ok" for temp in temperatures]
+print(labeled_temps)
 
 # Exercise 4:
 # Use a list comprehension with nested loops to create all combinations
@@ -89,7 +92,8 @@ colors = ["red", "blue"]
 sizes = ["S", "M", "L"]
 # Result should be: [("red", "S"), ("red", "M"), ("red", "L"), ("blue", "S"), ...]
 # Your code here:
-
+colors_sizes = [(color,size) for color in colors for size in sizes]
+print(colors_sizes)
 
 # Exercise 5:
 # Given these two lists:
@@ -98,7 +102,8 @@ scores = [92, 65, 95, 45]
 # Use a dict comprehension with zip() to create a dictionary
 # where keys are names and values are "Pass" or "Fail" (>= 60 is pass).
 # Your code here:
-
+students_scores = {student:"pass" if score >= 60 else "fail" for student, score in zip(students, scores) }
+print(students_scores)
 
 # Exercise 6:
 # Given this list:
@@ -106,11 +111,17 @@ words = ["hello", "hi", "hey", "howdy", "yo", "hola"]
 # Use a list comprehension to keep only words with more than 2 characters.
 # Then, from that result, use ANOTHER list comprehension to capitalize them.
 # Your code here:
-
+long_words = [word for word in words if len(word) > 2]
+print(long_words)
+capitalized_long_words = [word.capitalize() for word in long_words]
+print(capitalized_long_words)
 
 # Exercise 7:
 # What is the difference between these two?
 #   [x for x in items if condition]        (if at end)
 #   [x if condition else y for x in items] (if/else at start)
 # Explain in your own words as a comment.
-# Answer:
+# Answer: [x for x in iterable if condition]
+# Only includes items that match — result can be shorter
+# [x if condition else y for x in iterable]
+# Every item stays — values change based on condition
