@@ -25,7 +25,7 @@
 #   - Returns iterator of tuples pairing corresponding elements
 #   - Can zip 2 or more iterables
 # ============================================
-
+from traceback import print_tb
 
 # --- Examples ---
 
@@ -76,6 +76,11 @@ print(*z)
 # Use next() to print the first 3 characters one by one.
 # Then use * to print the rest.
 # Your code here:
+x = iter("python")
+print(next(x))
+print(next(x))
+print(next(x))
+print(*x)
 
 
 # Exercise 2:
@@ -86,7 +91,8 @@ fruits = ["apple", "banana", "cherry", "date", "elderberry"]
 # "2. banana"
 # etc.
 # Your code here:
-
+for index,fruit in enumerate(fruits, start=1):
+    print(index, fruit)
 
 # Exercise 3:
 # Given these two lists:
@@ -97,7 +103,8 @@ prices = [3500, 2800, 1500]
 # "Phone costs 2800"
 # "Tablet costs 1500"
 # Your code here:
-
+for product, price in zip(products, prices):
+    print(product,"costs", price)
 
 # Exercise 4:
 # Given these THREE lists:
@@ -108,17 +115,23 @@ scores = [92, 78, 95]
 # "Yael got 92 in Math"
 # etc.
 # Your code here:
-
+for student, score, subject in zip(students, scores, subjects):
+    print(student,"got",score,"in",subject)
 
 # Exercise 5:
 # What happens if you try to use * on an iterator twice?
 # Why does this happen?
 # Write your answer as a comment, then test it.
-# Answer:
+# Answer: I won't get anything because the iterator is exhausted
 
 
 # Exercise 6:
 # What is the difference between an iterable and an iterator?
 # In your own words, explain the relationship.
 # Write your answer as a comment.
-# Answer:
+# Answer: # An iterable is an object you can loop over (list, string, dict, etc.)
+# It has an iter() method.
+# An iterator is what you get when you call iter() on an iterable.
+# It tracks your position and produces the next value with next().
+# Under the hood, a for loop creates an iterator from the iterable
+# and calls next() repeatedly until StopIteration.
