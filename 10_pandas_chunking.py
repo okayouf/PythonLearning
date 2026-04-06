@@ -53,14 +53,19 @@ import pandas as pd
 # Read students.csv with chunksize=5
 # For each chunk, print the chunk and its number of rows.
 # Your code here:
-
+for chunk in pd.read_csv('students.csv', chunksize=5):
+    print(chunk)
+    print(len(chunk))
 
 # Exercise 2:
 # Using chunksize=10, calculate the total of all scores
 # in students.csv using the running total pattern.
 # Print the total.
 # Your code here:
-
+total = 0
+for chunk in pd.read_csv('students.csv', chunksize=10):
+    total += sum(chunk['score'])
+print(total)
 
 # Exercise 3:
 # Using chunksize=6, count how many scores are above 80
@@ -68,10 +73,14 @@ import pandas as pd
 # Hint: inside the loop, you can filter with chunk[chunk['score'] > 80]
 # and use len() to count.
 # Your code here:
-
+above_80 = 0
+for chunk in pd.read_csv('students.csv',chunksize=6):
+    above_80 += len(chunk[chunk['score'] > 80])
+print(above_80)
 
 # Exercise 4:
 # Why would you use chunksize when reading a CSV file?
 # In what situation is it useful vs. just loading the whole file?
 # Write your answer as a comment.
-# Answer:
+# Answer: i would use chunksize when reading a very large file chunk by chunk
+# instead of loading the whole file into the memory
