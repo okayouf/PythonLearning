@@ -1,5 +1,5 @@
 # ============================================
-# 12. Network Automation Exercises
+# Network Automation Exercises
 # ============================================
 # Practice your Python skills with networking-themed data!
 # All exercises use ONLY concepts you've already learned:
@@ -39,7 +39,11 @@ devices = [
 #   uptime_hours (float), is_online (bool)
 # Print each variable's type.
 # Your code here:
-
+device_name = 'switch'
+ip_address = '192.168.0.1'
+port_count = 48
+uptime_hours = 3.38
+is_online = False
 
 # ============================================
 # PART 2: Data Structures
@@ -50,14 +54,18 @@ devices = [
 #   "name", "type", "ip", "status"
 # Print the device's IP by accessing the key.
 # Your code here:
-
+device_info = {'name':'router_a','type':'1','ip':'10.0.0.138','status':True}
+print(device_info['ip'])
 
 # Exercise 2.2:
 # From the "devices" list above, create a SET of all unique device types.
 # (Hint: loop through devices and collect each device's "type")
 # Print the set.
 # Your code here:
-
+unique_devices = set()
+for device in devices:
+    unique_devices.add(device['type'])
+print(unique_devices)
 
 # Exercise 2.3:
 # Create a TUPLE called "allowed_types" with:
