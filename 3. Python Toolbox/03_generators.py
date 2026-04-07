@@ -25,7 +25,8 @@
 #   [x for x in range(1000000)] — creates full list, uses lots of memory
 #   (x for x in range(1000000)) — creates generator, barely uses memory
 # ============================================
-
+from dataclasses import dataclass
+from datetime import date
 
 # --- Examples ---
 
@@ -117,3 +118,63 @@ print(list(even_numbers(10)))
 # Write your answer as a comment.
 # Answer: List comprehension → builds the full list in memory immediately
 # Generator expression → produces values one at a time, on demand
+# Use a list comprehension when you need to reuse the data or its size is small.
+# Use a generator when the dataset is large or you only need to go through it once.
+
+
+# ============================================
+# BONUS — Generators for streaming data (Chapter 3)
+# ============================================
+#
+# with open() — context manager for file reading
+# -------------------------------------------------
+# When you open a file with:
+#     with open("filename.csv") as file:
+#         ...
+# Python automatically closes the file when the block ends — even if an error occurs.
+# This is safer than calling file.open() / file.close() manually.
+#
+# A file object is itself an iterable — you can loop over it line by line.
+# This makes it a perfect match for generators: you never load the whole file.
+#
+# Pattern:
+#     def read_large_file(file_object):
+#         while True:
+#             line = file_object.readline()
+#             if not line:       # empty string = end of file
+#                 break
+#             yield line
+#
+# Then use it:
+#     with open("big_file.csv") as f:
+#         gen = read_large_file(f)
+#         print(next(gen))   # first line only — rest not yet read
+# ============================================
+
+# Exercise 6 — Generators + with open()
+# Write a generator function called read_large_file(file_object) that:
+# - Reads one line at a time using file_object.readline()
+# - Yields each line
+# - Stops when readline() returns an empty string (end of file)
+#
+# Then open students.csv (path: "../Projects/students.csv") using with open(),
+# call your generator, and use next() to print just the first 3 lines.
+#
+# Why not just read the whole file at once?
+# Write your answer as a comment too.
+
+# Answer: Loading the whole file at once stores it all in memory.
+# If the file is larger than available RAM, Python will slow down significantly or raise a MemoryError.
+# A generator reads one line at a time, so memory usage stays constant no matter how big the file is
+# Your code here:
+def read_large_file(file_object):
+    while True:
+        data = file_object.readline()
+        if not data:
+            break
+        yield data
+with open(r'C:\Users\Omri\PycharmProjects\PythonLearning\Projects\students.csv') as file:
+    get_file = read_large_file(file)
+    print(next(get_file))
+    print(next(get_file))
+    print(next(get_file))
