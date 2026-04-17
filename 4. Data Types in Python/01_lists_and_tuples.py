@@ -146,3 +146,10 @@ mystery_b = ("hello",)
 # What type is mystery_b? ___________
 print(type(mystery_a))
 print(type(mystery_b))
+
+cities = ['Tel Aviv', 'Haifa', 'Jerusalem']
+populations = [460000, 285000, 970000]
+
+for idx, pair in enumerate(zip(cities, populations)):
+    city, pop = pair
+    print(idx, city, pop)
