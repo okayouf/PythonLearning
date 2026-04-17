@@ -3,6 +3,8 @@
 # Course: Data Types in Python (DataCamp)
 # Chapter 1: Fundamental Sequence Data Types
 # ============================================================
+from itertools import cycle
+from os.path import join
 
 # ------------------------------------------------------------
 # PART 1: F-STRINGS
@@ -88,7 +90,7 @@ discount = 0.10
 # Hint: discounted price = price * (1 - discount)
 
 # Your code here:
-
+print(f'{product} is on sale: original {price}, discounted price {price * (1 - discount):.2f}')
 
 # Exercise 2 — .join()
 # You have a list of city names:
@@ -98,6 +100,10 @@ cities = ["Tel Aviv", "Haifa", "Jerusalem", "Beer Sheva"]
 #    Hint: use slicing — cities[:3]
 
 # Your code here:
+cities_a = " | ".join(cities)
+print(cities_a)
+cities_b = " -> ".join(cities[:3])
+print(cities_b)
 
 
 # Exercise 3 — .startswith() / .endswith() / in
@@ -108,6 +114,10 @@ files = ["report.pdf", "data.csv", "notes.txt", "summary.pdf", "backup.csv"]
 #    (use the in operator)
 
 # Your code here:
+pdfs = [pdf for pdf in files if pdf.endswith(".pdf")]
+print(pdfs)
+data_files = [data_file for data_file in files if "data" in data_file]
+print(data_files)
 
 
 # Exercise 4 — Case normalization
