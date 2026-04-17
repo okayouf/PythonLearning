@@ -127,7 +127,11 @@ responses = ["YES", "No", "yes", "NO", "Maybe", "YES"]
 # Print: "3 users said yes" (or however many there are)
 
 # Your code here:
-
+count = 0
+for response in responses:
+    if response.lower() == "yes":
+        count += 1
+print(f'{count} users said yes')
 
 # Exercise 5 — Combining it all
 # You have a list of names entered by users (messy capitalization):
@@ -137,3 +141,5 @@ raw_names = ["alice", "BOB", "Charlie", "DANA", "eve"]
 # c) Print: "Attendees: Alice, Bob, Charlie, Dana, Eve"
 
 # Your code here:
+corrected_names = [name.title() for name in raw_names]
+print(f'Attendees: {", ".join(corrected_names)}')
