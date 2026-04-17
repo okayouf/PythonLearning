@@ -107,7 +107,10 @@ students = ["omri", "dana", "yosi", "maya"]
 # d) Print a sorted version of the list (do not modify the original)
 
 # Your code here:
-
+students.append("lior")
+print(students[2])
+print(students.pop())
+print(sorted(students))
 
 # Exercise 2 — List comprehension
 # Create a list called "even_squares" containing the square of every even number
@@ -115,7 +118,8 @@ students = ["omri", "dana", "yosi", "maya"]
 # Expected result: [4, 16, 36, 64, 100]
 
 # Your code here:
-
+even_squares = [num**2 for num in range(1, 11) if num % 2 == 0]
+print(even_squares)
 
 # Exercise 3 — Tuples and zip()
 # You have two lists:
@@ -126,6 +130,9 @@ populations = [460000, 936000, 285000]
 #    (use an f-string)
 
 # Your code here:
+city_population = zip(cities, populations)
+for city,population in city_population:
+    print(f'{city} has a population of {population}')
 
 
 # Exercise 4 — Tuple unpacking
@@ -135,6 +142,8 @@ product = ("Laptop", 3499.99, "Electronics")
 # Then print: "Laptop costs 3499.99 and belongs to Electronics"
 
 # Your code here:
+name, price, category = product
+print(f'{name} costs {price} and belongs to {category}')
 
 
 # Exercise 5 — Trailing comma trap
@@ -142,14 +151,7 @@ product = ("Laptop", 3499.99, "Electronics")
 # Then run the code to verify.
 mystery_a = ("hello")
 mystery_b = ("hello",)
-# What type is mystery_a? ___________
-# What type is mystery_b? ___________
+# What type is mystery_a? string
+# What type is mystery_b? tuple
 print(type(mystery_a))
 print(type(mystery_b))
-
-cities = ['Tel Aviv', 'Haifa', 'Jerusalem']
-populations = [460000, 285000, 970000]
-
-for idx, pair in enumerate(zip(cities, populations)):
-    city, pop = pair
-    print(idx, city, pop)
