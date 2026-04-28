@@ -110,13 +110,21 @@ print(list(school.keys()))  # ["class_a", "class_b"]
 # Then print the author using direct access.
 
 # Your code here:
-
+book = {
+    'title':"The Hitchhiker's Guide to the Galaxy",
+    'author':"Douglas Adams",
+    'year':1979,
+    'pages':224
+}
+print(book['author'])
 
 # Exercise 2 — Safe access
 # Using the "book" dictionary you just created:
 # a) Try to get the value for key "rating" — use .get() with a default of "Not rated"
 # b) Try to get the value for key "title" — use .get() with a default of "Unknown"
 # Print both results.
+print(book.get('rating','Not rated'))
+print(book.get('title', 'unknown'))
 
 # Your code here:
 
@@ -130,7 +138,10 @@ employee = {"name": "Yosi", "department": "Engineering", "salary": 12000}
 # d) Print the final dictionary
 
 # Your code here:
-
+employee["years_at_company"] = 3
+employee['salary'] = 13500
+print(employee.pop('department'))
+print(employee)
 
 # Exercise 4 — Iteration with .items()
 # You have a grade book:
@@ -140,7 +151,11 @@ grades = {"Alice": 91, "Bob": 78, "Charlie": 85, "Dana": 94}
 # "Bob needs improvement with 78" if grade < 80
 
 # Your code here:
-
+for name,grade in grades.items():
+    if grade >= 80:
+        print(f'{name} passed with {grade}')
+    else:
+        print(f'{name} needs improvement with {grade}')
 
 # Exercise 5 — Nested dictionary
 # You manage two stores:
@@ -155,3 +170,11 @@ stores = {
 #    based on the "open" value
 
 # Your code here:
+print(stores['south']['city'])
+print(stores["north"]['employees'])
+
+for district, store in stores.items():
+    if store['open'] :
+        print(f'{district} store in {store["city"]} is open')
+    else:
+        print(f'{district} store in {store["city"]} is closed')
