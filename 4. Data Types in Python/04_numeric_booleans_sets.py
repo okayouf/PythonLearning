@@ -3,6 +3,7 @@
 # Course: Data Types in Python (DataCamp)
 # Chapter 3: Numeric Data Types, Booleans, and Sets
 # ============================================================
+from queue import PriorityQueue
 
 # ------------------------------------------------------------
 # PART 1: int vs float
@@ -146,6 +147,9 @@ print(b.difference(a))    # {5, 6}               — in b but NOT in a (order ma
 # c) What is the result of -9 // 2? Predict first, then verify.
 
 # Your code here:
+print(f'{15 / 4} its type is {type(15 / 4)}') # 3.75
+print(f'{15 // 4} its type is {type(15 // 4)}') # 3
+print(-9 // 2) # -5
 
 
 # Exercise 2 — Decimal precision
@@ -154,7 +158,11 @@ print(b.difference(a))    # {5, 6}               — in b but NOT in a (order ma
 # Calculate the final price and print it with 2 decimal places using an f-string.
 
 # Your code here:
-
+from decimal import Decimal
+cost = Decimal('89.95')
+tax = Decimal('0.17')
+final_price = cost + cost * tax
+print(f'{final_price:.2f}')
 
 # Exercise 3 — Float trap
 # a) Run: result = 0.1 + 0.2 — print the result
@@ -162,6 +170,11 @@ print(b.difference(a))    # {5, 6}               — in b but NOT in a (order ma
 # c) Fix it using Decimal and confirm the comparison is now True.
 
 # Your code here:
+result = 0.1 + 0.2
+print(result)
+print(result == 0.3)
+result = Decimal('0.1') + Decimal('0.2')
+print(result == Decimal('0.3'))
 
 
 # Exercise 4 — Booleans and truthy/falsey
