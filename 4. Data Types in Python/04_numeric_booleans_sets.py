@@ -187,14 +187,18 @@ print(result == Decimal('0.3'))
 # 5. bool({"key": "value"})
 
 # Write your predictions as comments, then verify:
-# 1. prediction: ___
-# 2. prediction: ___
-# 3. prediction: ___
-# 4. prediction: ___
-# 5. prediction: ___
+# 1. prediction: True
+# 2. prediction: False
+# 3. prediction: True
+# 4. prediction: False
+# 5. prediction: True
 
 # Your code here:
-
+print(bool(42))
+print(bool(0))
+print(bool("False"))
+print(bool([]))
+print(bool({"key": "value"}))
 
 # Exercise 5 — Sets
 # You collected survey responses (with duplicates):
@@ -204,7 +208,10 @@ responses = ["yes", "no", "yes", "maybe", "yes", "no", "no", "maybe"]
 # c) Print the number of unique responses (use len())
 
 # Your code here:
-
+unique_responses = set(responses)
+unique_responses.add("undecided")
+print(unique_responses)
+print(len(unique_responses))
 
 # Exercise 6 — Set operations
 # Two classes picked their favorite subjects:
@@ -216,3 +223,7 @@ class_b = {"Physics", "Chemistry", "English", "Biology"}
 # d) What subjects does class_b like that class_a does NOT?
 
 # Your code here:
+print(class_a.intersection(class_b))
+print(class_a.union(class_b))
+print(class_a.difference(class_b))
+print(class_b.difference(class_a))
